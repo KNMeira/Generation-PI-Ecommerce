@@ -15,8 +15,30 @@ Bootcamp Generation FullStack - Java</h1>
 
 <br>
 <h2 align="center">:hammer: Funcionalidades do projeto </h2>
-
-
+<h4> :white_check_mark:Model Categoria:white_check_mark: </h4>
+  <ul>
+    <li>id</li>
+    <li>nomeCategoria</li>
+    <li>descricaoCategoria</li>
+  <ul>
+<h4> :white_check_mark:Model Produto:white_check_mark: </h4>
+  <ul>
+    <li>id</li>
+    <li>nomeProduto</li>
+    <li>descricaoProduto</li>
+    <li>precoProduto</li>
+    <li>quantidadeProduto</li>
+  <ul>
+<h4> :white_check_mark:Model Usuário:white_check_mark: </h4>
+  <ul>
+    <li>id</li>
+    <li>nomeUsuario</li>
+    <li>senhaUsuario</li>
+    <li>loginUsuario</li>
+    <li>fotoUsuario</li>
+    <li>tipoUsuario</li>
+    <li>produtosUsuario</li>
+  <ul>
 
 <br>
 <h2 align="center"> :dart: Objetivo de aprendizado/ O que aprendi </h2>
