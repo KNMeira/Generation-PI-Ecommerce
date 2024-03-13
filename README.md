@@ -15,29 +15,73 @@ Bootcamp Generation FullStack - Java</h1>
 
 <br>
 <h2 align="center">:hammer: Funcionalidades do projeto </h2>
-<h4> :white_check_mark:Model Categoria:white_check_mark: </h4>
+<h4> :white_check_mark:Classe ModelCategoria:white_check_mark: </h4>
   <ul>
-    <li>id</li>
-    <li>nomeCategoria</li>
-    <li>descricaoCategoria</li>
+    <li>id (Long) <br>
+      Descrição: Identificador único para a categoria dentro da tabela. <br>
+      @GeneratedValue: Indica que o atributo é incrementado automaticamente.</li>
+    <li>nomeCategoria (String) <br>
+      Descrição: Define o nome da categoria.<br>
+      @NotBlank: O valor não pode ser nulo ou um espaço em branco. <br>
+      @Size: O tamanho deve ter entre 5 e 50 caracteres.</li>
+    <li>descricaoCategoria (String) <br>
+      Descrição: Descreve a categoria. <br>
+      @NotBlank: O valor não pode ser nulo ou um espaço em branco. <br>
+      @Size: A descrição deve ter entre 10 e 255 caracteres.</li>
   </ul>
-<h4> :white_check_mark:Model Produto:white_check_mark: </h4>
+<h4> :white_check_mark:Classe ModelProduto:white_check_mark: </h4>
   <ul>
-    <li>id</li>
-    <li>nomeProduto</li>
-    <li>descricaoProduto</li>
-    <li>precoProduto</li>
-    <li>quantidadeProduto</li>
+    <li>id (Long)<br>
+      Descrição: Identificador único para o produto dentro da tabela. <br>
+      @GeneratedValue: Indica que o atributo é incrementado automaticamente.</li>
+    <li>nomeProduto (String) <br>
+      Descrição: Armazena o nome do produto. <br>
+      @NotBlank: O valor não pode ser nulo ou um espaço em branco. <br>
+      @Size: O nome deve ter entre 5 e 45 caracteres.</li>
+    <li>descricaoProduto (String) <br>
+      Descrição: Armazena a descrição do produto. <br>
+      @NotBlank: O valor não pode ser nulo ou um espaço em branco. <br>
+      @Size: A descrição deve ter entre 5 e 45 caracteres.</li>
+    <li>precoProduto (Float) <br>
+      Descrição: Armazena o valor do produto. <br>
+      @NotNull: O valor não pode ser nulo. <br>
+      @Positive: O valor deve ser um número positivo. <br>
+      @NumberFormat: O valor deve ser formatado como Float.<br>
+      @Column: O valor deve ser decimal contendo no máximo 6 dígitos. (Ex. 1,234.56)</li>
+    <li>quantidadeProduto (Integer) <br>
+      Descrição: Armazena a quantidade de produtos disponíveis no estoque. <br>
+      @NotNull: O valor não pode ser nulo <br>
+      @PositiveOrZero: O valor não pode ser abaixo de zero</li>
   </ul>
-<h4> :white_check_mark:Model Usuário:white_check_mark: </h4>
+<h4> :white_check_mark:Classe ModelUsuário:white_check_mark: </h4>
   <ul>
-    <li>id</li>
-    <li>nomeUsuario</li>
-    <li>senhaUsuario</li>
-    <li>loginUsuario</li>
-    <li>fotoUsuario</li>
-    <li>tipoUsuario</li>
-    <li>produtosUsuario</li>
+    <li>id (Long)<br>
+      Descrição: Identificador único para o usuário dentro da tabela. <br>
+      @GeneratedValue: Indica que o atributo é incrementado automaticamente.</li>
+    <li>nomeUsuario (String) <br>
+      Descrição: Armazena o nome real do usuário. <br>
+      @NotBlank: O nome não pode ser nulo ou um espaço em branco. <br>
+      @Size: O nome deve ter entre 5 e 255 caracteres.</li>
+    <li>senhaUsuario (String) <br>
+      Descrição: Armazena a senha do usuário. <br>
+      @NotBlank: A senha não pode ser nula ou um espaço em branco. <br>
+      @Size: A senha deve conter entre 8 e 32 caracteres.</li>
+    <li>loginUsuario (String) <br>
+      Descrição: Armazena o login/email utilizado no caadstro do usuário. <br>
+      @NotBlank: O login ou email não pode ser nulo ou um espaço em branco. <br>
+      @Size: O login deve ter entre 5 e 255 caracteres.</li>
+    <li>fotoUsuario (String) <br>
+      Descrição: Link para a foto do usuário. <br>
+      @NotNull: O valor não pode ser nulo. <br>
+      @Size: O link para a foto deve ter no máximo 45 caracteres.</li>
+    <li>tipoUsuario (String) <br>
+      Descrição: Define o tipo do usuário, se vendedor ou comprador. <br>
+      @NotNull: O tipo de usuário não pode ser nulo. <br>
+      @Size: O atributo deve ter no máximo 45 caracteres.</li>
+    <li>produtosUsuario (Long) <br>
+      Descrição: Armazena a quantidade de produtos postados pelo usuário se o mesmo for um vendedor. <br>
+      @NumberFormat: O valor deve ser um número inteiro. <br>
+      @PositiveOrZero: O valor não pode ser menor que 0.</li>
   </ul>
 
 <br>
