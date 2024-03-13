@@ -20,7 +20,7 @@ Bootcamp Generation FullStack - Java</h1>
     <li>id</li>
     <li>nomeCategoria</li>
     <li>descricaoCategoria</li>
-  <ul>
+  </ul>
 <h4> :white_check_mark:Model Produto:white_check_mark: </h4>
   <ul>
     <li>id</li>
@@ -28,7 +28,7 @@ Bootcamp Generation FullStack - Java</h1>
     <li>descricaoProduto</li>
     <li>precoProduto</li>
     <li>quantidadeProduto</li>
-  <ul>
+  </ul>
 <h4> :white_check_mark:Model Usuário:white_check_mark: </h4>
   <ul>
     <li>id</li>
@@ -38,7 +38,7 @@ Bootcamp Generation FullStack - Java</h1>
     <li>fotoUsuario</li>
     <li>tipoUsuario</li>
     <li>produtosUsuario</li>
-  <ul>
+  </ul>
 
 <br>
 <h2 align="center"> :dart: Objetivo de aprendizado/ O que aprendi </h2>
