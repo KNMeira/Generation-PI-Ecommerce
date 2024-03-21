@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -22,25 +23,26 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank(message = "O nome de usuario não pode estar vazio!")
 	@Size(max = 100, message = "O nome de usuario precisa ser menor 50 caracteres!")
 	private String nome;
-	
+
 	@NotBlank(message = "O nome de usuario não pode estar vazio!")
 	@Size(min = 8, message = "A senha precisa ter no minimo 8 caracteres!")
 	@Size(max = 32, message = "A senha precisa ter no máximo 32 caracteres!")
 	private String senha;
-	
+
 	@NotBlank(message = "O email de usuário não pode estar vazio!")
 	@Size(min = 5, message = "O email deve ter pelo menos 5 caracteres!")
 	@Size(max = 255, message = "O email deve ter no máximo 255 caracteres!")
+	@Email(message = "Insira um endereço de email válido!")
 	private String email;
 
 	@NotNull(message = "")
 	@Size(max = 45, message = "O link da foto deve ter no máximo 45 caracteres!") // alimentai/users/1/foto
 	private String foto;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Produto> produtos;
@@ -80,7 +82,7 @@ public class Usuario {
 	public String getFoto() {
 		return foto;
 	}
-	
+
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
