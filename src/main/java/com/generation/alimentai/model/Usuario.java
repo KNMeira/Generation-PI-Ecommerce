@@ -27,15 +27,15 @@ public class Usuario {
 	@Size(max = 100, message = "O nome de usuario precisa ser menor 50 caracteres!")
 	private String nome;
 	
-	@NotBlank(message = "O nome de usuario não pode estar vazio!")
-	@Size(min = 8, message = "A senha precisa ter no minimo 8 caracteres!")
-	@Size(max = 32, message = "A senha precisa ter no máximo 32 caracteres!")
-	private String senha;
-	
 	@NotBlank(message = "O email de usuário não pode estar vazio!")
 	@Size(min = 5, message = "O email deve ter pelo menos 5 caracteres!")
 	@Size(max = 255, message = "O email deve ter no máximo 255 caracteres!")
-	private String email;
+	private String usuario;
+	
+	@NotBlank(message = "O nome de usuario não pode estar vazio!")
+	@Size(min = 8, message = "A senha precisa ter no minimo 8 caracteres!")
+	//@Size(max = 32, message = "A senha precisa ter no máximo 32 caracteres!")
+	private String senha;
 
 	@NotNull(message = "")
 	@Size(max = 45, message = "O link da foto deve ter no máximo 45 caracteres!") // alimentai/users/1/foto
@@ -69,12 +69,12 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getFoto() {
