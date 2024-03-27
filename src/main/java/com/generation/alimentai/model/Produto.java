@@ -45,12 +45,13 @@ public class Produto {
 	@PositiveOrZero(message = "A quantidade em estoque deve ser um número positivo!")
 	private Integer quantidade;
 	
+	@NotNull(message = "Selecione um ID de categoria para o produto!")
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("produto")
+	@JsonIgnoreProperties("produtos")
 	private Usuario usuario;
 
 	public Long getId() {
