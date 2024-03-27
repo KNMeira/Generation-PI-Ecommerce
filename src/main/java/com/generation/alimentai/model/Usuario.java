@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,6 +20,7 @@ import jakarta.validation.constraints.Size;
 @Entity
 @Table(name = "tb_usuarios")
 public class Usuario {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -27,6 +29,7 @@ public class Usuario {
 	@Size(max = 100, message = "O nome de usuario precisa ser menor 50 caracteres!")
 	private String nome;
 	
+	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O email de usuário não pode estar vazio!")
 	@Size(min = 5, message = "O email deve ter pelo menos 5 caracteres!")
 	@Size(max = 255, message = "O email deve ter no máximo 255 caracteres!")
@@ -34,11 +37,9 @@ public class Usuario {
 	
 	@NotBlank(message = "O nome de usuario não pode estar vazio!")
 	@Size(min = 8, message = "A senha precisa ter no minimo 8 caracteres!")
-	//@Size(max = 32, message = "A senha precisa ter no máximo 32 caracteres!")
 	private String senha;
 
-	@NotNull(message = "")
-	@Size(max = 45, message = "O link da foto deve ter no máximo 45 caracteres!") // alimentai/users/1/foto
+	@Size(max = 45, message = "O link da foto deve ter no máximo 45 caracteres!") 
 	private String foto;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)

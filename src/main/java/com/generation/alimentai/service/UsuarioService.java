@@ -99,5 +99,4 @@ public Optional<UsuarioLogin> autenticarUsuario(Optional<UsuarioLogin> usuarioLo
 		return "Bearer " + jwtService.generateToken(usuario);
 	}
 
-
 }
