@@ -45,6 +45,9 @@ public class Produto {
 	@PositiveOrZero(message = "A quantidade em estoque deve ser um número positivo!")
 	private Integer quantidade;
 	
+	@NotNull(message = "O produto deve conter uma foto.")
+	private String foto;
+	
 	@NotNull(message = "Selecione um ID de categoria para o produto!")
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
@@ -94,6 +97,14 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 	
+	public String getFoto() {
+		return foto;
+	}
+	
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -110,3 +121,4 @@ public class Produto {
 		this.usuario = usuario;
 	}
 }
+
