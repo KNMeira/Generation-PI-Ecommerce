@@ -7,12 +7,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -31,16 +34,21 @@ public class Usuario {
 	
 	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O email de usuário não pode estar vazio!")
+	@Email(message = "Insira um endereço de e-mail válido!")
 	@Size(min = 5, message = "O email deve ter pelo menos 5 caracteres!")
 	@Size(max = 255, message = "O email deve ter no máximo 255 caracteres!")
-	private String usuario;
+	private String email;
 	
-	@NotBlank(message = "O nome de usuario não pode estar vazio!")
+	@NotBlank(message = "A senha do usuário não pode estar vazio!")
 	@Size(min = 8, message = "A senha precisa ter no minimo 8 caracteres!")
 	private String senha;
 
 	@Size(max = 45, message = "O link da foto deve ter no máximo 45 caracteres!") 
 	private String foto;
+	
+	@NotNull(message = "O tipo de usuário não pode estar vazio!")
+	@Enumerated(EnumType.STRING)
+	private UserType tipo;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -70,12 +78,12 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmail(String usuario) {
-		this.usuario = usuario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getFoto() {
@@ -86,11 +94,25 @@ public class Usuario {
 		this.foto = foto;
 	}
 
+	public UserType getTipo() {
+		return tipo;
+	}
+	
+	public void setTipo(UserType tipo) {
+		this.tipo = tipo;
+	}
+	
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
+	}
+	
+	public enum UserType {
+		consumidor,
+		produtor,
+		administrador
 	}
 }

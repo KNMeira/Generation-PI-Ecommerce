@@ -1,12 +1,15 @@
  package com.generation.alimentai.model;
 
+import com.generation.alimentai.model.Usuario.UserType;
+
 public class UsuarioLogin {
 	
 	private Long id;
 	private String nome;
-	private String usuario;
+	private String email;
 	private String senha;
 	private String foto;
+	private UserType tipo;
 	private String token;
 
 	public Long getId() {
@@ -25,12 +28,12 @@ public class UsuarioLogin {
 		this.nome = nome;
 	}
 
-	public String getUsuario() {
-		return this.usuario;
+	public String getEmail() {
+		return this.email;
 	}
 
-	public void setEmail(String usuario) {
-		this.usuario = usuario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
@@ -48,6 +51,14 @@ public class UsuarioLogin {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+	
+	public UserType getTipo() {
+		return tipo;
+	}
+	
+	public void setTipo(UserType tipo) {
+		this.tipo = tipo;
+	}
 
 	public String getToken() {
 		return this.token;
@@ -56,5 +67,4 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
 }
