@@ -26,7 +26,7 @@ public class Produto {
 	private Long id;
 
 	@NotBlank(message = "O nome do produto não pode estar vazio!")
-	@Size(min = 5, message = "O nome precisa ter mais do que 5 caracteres!")
+	@Size(min = 3, message = "O nome precisa ter no mínimo 3 caracteres!")
 	@Size(max = 45, message = "O nome precisa ter menos do que 45 caracteres!")
 	private String nome;
 
